@@ -1,5 +1,11 @@
-export default {
+const resolvers = {
     Query: {
-      hi: (parent, args, context, info) => 'hi',
+      me: () => {
+        return {
+          username: 'Guy Rawsthorn',
+        };
+      },
     },
   };
+  
+export default resolvers

@@ -1,9 +1,13 @@
-import { ggl } from 'apollo-server-express';
+import { gql } from 'apollo-server-express';
 
-const query = ggl `
+const schema = gql `
   type Query {
-    hi: String
+    me: User
+  }
+
+  type User {
+      username: String!
   }
 `;
 
-export default query
+export default schema
