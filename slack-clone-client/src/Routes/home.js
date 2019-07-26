@@ -1,30 +1,24 @@
-// import React from 'react';
-// import { ggl, graphql } from 'react-apollo'
+import React, { Component } from "react";
+import { graphql } from 'react-apollo';
+import { allUsersQuery} from '../Queries/users';
 
-// const Home = ({data: { loading, allUsers }}) => 
-//  (loading ? null: allUsers.map(u =>
-//     <h1 key={u.id}>{u.email}</h1>
-// ))
+class Home extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div>
+          {!this.props.data.allUsers ? 
+          <h3>Loading</h3> : 
+          this.props.data.allUsers.map(u=> {
+            return (
+            <h3>{u.email}</h3>
+            )
+          })
+          }
+        </div>
+      </div>
+    );
+  }
+}
 
-// const allUsersQuery = ggl`
-// {
-//     allUsers {
-//         id
-//         username
-//         email
-//       }
-// }`
-
-// export default graphql(allUsersQuery)(Home);
-
-// import React, { Component } from 'react'
-
-// export default class Home extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <p>yeyeyeyeye</p>
-//             </div>
-//         )
-//     }
-// }
+export default graphql(allUsersQuery)(Home);
