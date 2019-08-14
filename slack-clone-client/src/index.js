@@ -6,7 +6,20 @@ import Home from './Routes/index';
 import 'semantic-ui-css/semantic.min.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:8000/graphql'
+  uri: 'http://localhost:8000/graphql',
+  fetchOptions: {
+    credentials: 'include'
+  },
+  request: async (operation) => {
+    const token = await localStorage.getItem('token');
+    const refreshToken = await localStorage.getItem('refreshToken')
+    operation.setContext({
+      headers: {
+        authorization: `${token}`,
+        refreshToken: `${refreshToken}` 
+      }
+    });
+  },
 })
 
 const app = (
