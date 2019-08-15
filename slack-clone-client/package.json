@@ -20,7 +20,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "0.9.x",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.87.3"
+    "semantic-ui-react": "^0.87.3",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {},
   "scripts": {
