@@ -38,7 +38,7 @@ const server = new ApolloServer({
     
     // add the user to the context
     return {
-      user: findUser(req, res),
+      user: findUser(req),
       models,
       SECRET,
       SECRET2
